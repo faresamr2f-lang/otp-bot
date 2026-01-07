@@ -42,9 +42,12 @@ async def run_bot():
     processed = set()
     print("🚀 البوت الخفيف بدأ العمل الآن...")
     
-    while True:
+   while True:
         try:
+            print(f"🔍 [{datetime.now().strftime('%H:%M:%S')}] جاري الفحص عن رسائل جديدة...") # ضيف السطر ده
             response = requests.get("https://www.ivasms.com/portal/live/my_sms", headers=HEADERS, timeout=15)
+            
+            # ... باقي الكود زي ما هو ...
             
             # لو الكوكيز انتهت، هيرجعك لصفحة اللوجن
             if "login" in response.url.lower():
@@ -85,4 +88,5 @@ async def run_bot():
 
 if __name__ == "__main__":
     import os
+
     asyncio.run(run_bot())
