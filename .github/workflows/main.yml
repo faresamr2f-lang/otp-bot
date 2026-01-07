@@ -1,0 +1,19 @@
+name: OTP Bot Free
+on:
+  schedule:
+    - cron: '0 */2 * * *' # هيعيد تشغيل نفسه كل ساعتين عشان الكوكيز
+  workflow_dispatch: # زرار تشغيل يدوي
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Run
+        run: python bot.py
